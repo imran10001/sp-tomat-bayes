@@ -90,7 +90,7 @@
             <p style="text-indent: 30px">
               Sistem pakar adalah sistem komputer yang dirancang untuk menyelesaikan masalah atau memberikan solusi yang rumit dengan cara mengaplikasikan pengetahuan dari seorang ahli dalam bidang tertentu. Sistem pakar memanfaatkan berbagai macam metode untuk menghasilkan solusi yang tepat dan efektif. Salah satu metode yang sering digunakan dalam sistem pakar adalah metode teorema Bayes.
             </p>
-            <a href="{{ route('diagnosa')}}" class="button text-decoration-none p-2 rounded fw-medium">Mulai Diagnosa</a>
+            <a href="#diagnosa" class="button text-decoration-none p-2 rounded fw-medium">Mulai Diagnosa</a>
           </div>
         </section>
         <section class=" d-flex flex-column align-items-center justify-content-center"

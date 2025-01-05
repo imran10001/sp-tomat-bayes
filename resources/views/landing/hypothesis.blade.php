@@ -33,6 +33,11 @@
             <div class="card border-0 mb-3" style="width: 100%;">
                 <div class="row g-0 d-flex align-items-center justify-content-center">
                   <div class="col-md-2 d-flex justify-content-center align-items-center border border-1 rounded-5" style=" width: 150px; height: 150px; overflow:hidden;">
+                    @if ($item->images->isNotEmpty())
+                    <img src="/storage/Hypothesis-Image/{{$item->images->first()->image_path}}" height="300px" class="me-3 rounded" alt="Gambar Penyakit">
+                    @else
+                        <p>Gambar tidak tersedia.</p>
+                    @endif
                     <img src="storage/Hypothesis-Image/{{ $item->image }}" class="rounded-start border" width="100%"  alt="...">
                   </div>
                   <div class="col-md-8">

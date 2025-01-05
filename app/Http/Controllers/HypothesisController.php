@@ -146,8 +146,8 @@ class HypothesisController extends Controller
         $hypothesis = Hypothesis::findOrFail($id);
 
         // Jika ada gambar baru yang diunggah
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $image) {
                 $imageName = 'Hypothesis_' . date('YmdHis') . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
                 $image->storeAs('Public/Hypothesis-Image', $imageName);
 

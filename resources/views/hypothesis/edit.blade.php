@@ -45,8 +45,8 @@
                             </div>
                             <div class="mb-3">
                                 <label for="image" class="form-label">Gambar</label>
-                                <input name="image" type="file" class="form-control @error('image') is-invalid @enderror" accept="image/png, image/jpeg, image/gif" value="{{ old('image', $get_hypothesis->image) }}" id="image">
-                                @error('image')
+                                <input name="image[]" type="file" multiple accept="image/png, image/jpeg, image/gif" class="form-control @error('image.*') is-invalid @enderror" value="{{ old('image.*') }}" id="image">
+                                @error('image.*')
                                 <div class="invalid-feedback">
                                     <i class="bx bx-radio-circle"></i>
                                     {{ $message }}.

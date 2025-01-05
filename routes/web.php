@@ -40,7 +40,7 @@ Route::group(['middleware' => ['role:admin', 'auth']], function () {
   // Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::group(['middleware' => ['role:user', 'auth']], function () {  
+Route::group(['middleware' => ['role:admin,user', 'auth']], function () {  
   // Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
   Route::get('/expert_system', [AppController::class, 'expert_system'])->name('expert_system');
   Route::post('/expert_result', [AppController::class, 'expert_result'])->name('expert_result');

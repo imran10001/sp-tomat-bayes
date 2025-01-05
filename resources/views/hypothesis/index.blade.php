@@ -49,10 +49,15 @@
                                 <td>{{ $item->code }}</td>
                                 <td>{{ $item->name }}</td>
                                 <td>
-                                  {{ $item->image }}
+                                  {{-- {{ $item->image }}
                                   <div class="card" style="width: 12rem;">
                                     <img src="/storage/Hypothesis-Image/{{ $item->image }}" class="card-img-top" alt="{{ $item->image }}">
-                                  </div>
+                                  </div> --}}
+                                  @if ($item->images->isNotEmpty())
+                                      <img src="/storage/Hypothesis-Image/{{$item->images->first()->image_path}}" height="300px" class="me-3 rounded" alt="Gambar Penyakit">
+                                  @else
+                                      <p>Gambar tidak tersedia.</p>
+                                  @endif
                                 </td>
                                 <td>
                                   <a href="{{ route('hypothesis.edit',$item->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-fw fa-edit"></i> Edit</a>

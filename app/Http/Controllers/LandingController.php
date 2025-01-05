@@ -23,7 +23,8 @@ class LandingController extends Controller
             'diagnosis_data' => Diagnosis::where('user_id', Auth::id())
                 ->orderBy('created_at', 'desc')
                 ->paginate(5),
-            'hypothesis_data' => Hypothesis::orderBy('created_at', 'desc')->paginate(4),
+            'hypothesis_data' => Hypothesis::orderBy('id', 'desc')->paginate(4),
+            
         ]);
     }
 

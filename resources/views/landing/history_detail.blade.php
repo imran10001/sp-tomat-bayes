@@ -30,7 +30,7 @@
         <div class="container">
             <section style="padding-top: 100px">
                 <div id="report">
-                    <h2 class="fw-semibold">Hasil Diagnosis</h2>
+                    <h2 class="fw-bolder">Hasil Diagnosis</h2>
                     <div class="result">
                         <div class="mb-2">
                             <label for="">Nama Penyakit :</label>
@@ -63,7 +63,7 @@
                         @if ($get_diagnosis->hypothesis && $get_diagnosis->hypothesis->images->isNotEmpty())
 
                             @foreach ($get_diagnosis->hypothesis->images as $item)
-                                <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="500px" class="me-3 rounded" alt="Gambar Penyakit">
+                                <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="350px" class="me-3 rounded" alt="Gambar Penyakit">
                             @endforeach
                         @else
                             <p class="text-muted">Gambar tidak tersedia.</p>
@@ -74,7 +74,7 @@
             </section>
 </div>
 </main>
-    <footer>
+    <footer class="mt-5">
         <span style="color: white;">- 2024 -</span>
     </footer>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

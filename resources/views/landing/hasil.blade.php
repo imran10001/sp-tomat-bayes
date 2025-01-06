@@ -29,7 +29,7 @@
         <div class="container">
             <section style="padding-top: 100px; padding-bottom: 100px">
                 <div id="report">
-                    <h2 class="fw-semibold">Hasil Diagnosa</h2>
+                    <h2 class="fw-bolder">Hasil Diagnosa</h2>
                     <div class="result">
                         @if(isset($bestHypothesisData))
                         <div class="mb-2">
@@ -60,7 +60,7 @@
                         </div>                        
                         {{-- <img src="/storage/Hypothesis-Image/{{ $bestHypothesisData->image }}" class="rounded-4" height="500px" alt="Gambar Penyakit"> --}}
                             @foreach ($bestHypothesisData->images as $item)
-                                <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="500px" class="me-3 rounded" alt="Gambar Penyakit">
+                                <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="300px" class="me-3 rounded" alt="Gambar Penyakit">
                             @endforeach
                         @else
                             <div>Data tidak ditemukan.</div>
@@ -141,7 +141,7 @@
                     </table>
                     @endforeach --}}
                     
-                    <h2 class="mt-5 mb-2 fw-semibold">Hasil Diagnosa Lainnya</h2>
+                    <h2 class="mt-5 mb-2 fw-bold">Hasil Diagnosa Lainnya</h2>
                     @foreach($totalBayes as $hypothesisId => $totalBayesValue)
                     @php
                         $hypothesis = $hypothesesData[$hypothesisId];
@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h3 class="card-title">{{ $hypothesis->name }}</h3>
+                                        <h3 class="card-title fw-semibold">{{ $hypothesis->name }}</h3>
                                         <p class="card-text">{{ number_format($totalBayesValue) }}%</p>
                                         <p class="card-text">{{ $certaintyDescriptions[$hypothesisId] }}</p>
                                         <a href="{{ route('more_diagnosis_detail', $hypothesis->id) }}" class="btn btn-primary mt-2">

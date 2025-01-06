@@ -28,7 +28,7 @@
     <main>
         <div class="container">
             <section style="padding-top: 100px">
-              <h2 class="fw-semibold pb-4">Semua Penyakit</h2>
+              <h2 class="fw-bolder pb-4">Semua Penyakit</h2>
             @foreach ($hypothesis_data as $item)
             <div class="card border-0 mb-3" style="width: 100%;">
                 <div class="row g-0 d-flex align-items-center justify-content-center">

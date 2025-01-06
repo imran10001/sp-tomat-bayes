@@ -28,7 +28,7 @@
         <div class="container">
             <section style="padding-top: 100px; padding-bottom: 100px">
                 <div id="report">
-                    <h2>Detail Hasil Diagnosa</h2>
+                    <h2 class="fw-bolder">Detail Hasil Diagnosa</h2>
                     <div class="result">
                         <div class="mb-2">
                             <label for="">Nama Penyakit :</label>

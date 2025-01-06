@@ -29,7 +29,7 @@
   <main>
     <div class="container">
       <section style="padding-top: 100px">
-        <h2 class="mb-5 text-capitalize">Pilih Gejala</h2>   
+        <h2 class="mb-5 text-capitalize fw-bolder">Pilih Gejala</h2>   
         <form action="{{ route('result') }}" method="post">
             @csrf
                 <div class="mb-5 col-lg-6 col-md-12 d-none">

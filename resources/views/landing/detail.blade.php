@@ -28,7 +28,7 @@
     <main>
         <div class="container">
             <section style="padding-top: 100px; padding-bottom: 100px">
-                <h2 class="mb-5 text-capitalize">{{$get_hypothesis->name}}</h2>                    
+                <h2 class="mb-5 text-capitalize fw-bolder">{{$get_hypothesis->name}}</h2>                    
                      <div class="mb-3">
                         <label for="">Deskripsi Penyakit :</label>
                         <textarea id="" class="autoresizeTextarea mt-2" disabled class="p-3 rounded-4">{{$get_hypothesis->description}}</textarea>

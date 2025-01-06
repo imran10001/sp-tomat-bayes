@@ -15,7 +15,7 @@
       <nav>
         <div class="icon">
           <a href="{{route('index')}}"><img src="{{asset('landing/asset/icons/tomato.png')}}" alt="" />
-            <span>SISTEM PAKAR TOMAT</span></a>
+            <span >SISTEM PAKAR TOMAT</span></a>
         </div>
         <ul class="nav-menu">
           <li class="menu"><a href="#beranda">Beranda</a></li>
@@ -86,16 +86,16 @@
         <section class="  gap-3 d-flex align-items-center" id="beranda">
           <img src="{{asset('landing/asset/icons/tomato-hero.png')}}" alt="TOMAT" class="w-50" />
           <div class="banner">
-            <h1>SISTEM PAKAR DIAGNOSA PENYAKIT TANAMAN TOMAT</h1>
+            <h1 class="fw-bolder">SISTEM PAKAR DIAGNOSA PENYAKIT TANAMAN TOMAT</h1>
             <p style="text-indent: 30px">
-              Sistem pakar adalah sistem komputer yang dirancang untuk menyelesaikan masalah atau memberikan solusi yang rumit dengan cara mengaplikasikan pengetahuan dari seorang ahli dalam bidang tertentu. Sistem pakar memanfaatkan berbagai macam metode untuk menghasilkan solusi yang tepat dan efektif. Salah satu metode yang sering digunakan dalam sistem pakar adalah metode teorema Bayes.
+              Sistem pakar adalah sistem komputer yang dirancang untuk menyelesaikan masalah atau memberikan solusi yang rumit dengan cara mengaplikasikan pengetahuan dari seorang ahli dalam bidang tertentu. Sistem pakar memanfaatkan berbagai macam metode untuk menghasilkan solusi yang tepat dan efektif. Salah satu metode yang sering digunakan dalam sistem pakar adalah metode Teorema Bayes.
             </p>
             <a href="#diagnosa" class="button text-decoration-none p-2 rounded fw-medium">Mulai Diagnosa</a>
           </div>
         </section>
         <section class=" d-flex flex-column align-items-center justify-content-center"
           id="diagnosa">
-          <h2 class="text-center p-2" style="border-bottom: 5px solid #ff0022;">Diagnosa</h2>
+          <h2 class="text-center p-2 fw-bolder" style="border-bottom: 5px solid #ff0022;">Diagnosa</h2>
           <div class="section-diagnosa p-3 mt-5 border border-3 rounded-4">
             <p>
               Sistem ini menggunakan metode Teorema Bayes untuk mendiagnosis penyakit. Proses dimulai dengan memilih gejala, 
@@ -107,7 +107,7 @@
           </div>
         </section>
         <section class=" d-flex flex-column align-items-center justify-content-center"  id="nama_penyakit">
-          <h2 class="text-center p-2" style="border-bottom: 5px solid #ff0022;">Nama Penyakit</h2>
+          <h2 class="text-center p-2 fw-bold" style="border-bottom: 5px solid #ff0022;">Nama Penyakit</h2>
           <div class=" d-flex align-items-center mb-5" style="width: 100%">
             <a href="{{route('hypothesis_page')}}" class="ms-auto btn fw-semibold border-0">Lihat Semua <i class="fa-solid fa-chevron-right"></i></a>
           </div>
@@ -123,7 +123,7 @@
                 {{-- <img src="/storage/Hypothesis-Image/{{$item->images->first()->image_path}}" class="card-img" alt="Gambar Penyakit"> --}}
               </div>
               <div class="card-body">
-                <h5 class="card-title text-center fw-semibold text-capitalize">{{$item->name}}</h5>
+                <h5 class="card-title text-center fw-semibold text-capitalize fw-bolder">{{$item->name}}</h5>
               </div>
             </a>
             @endforeach
@@ -132,7 +132,7 @@
         @if (auth()->check())
         <section class="d-flex flex-column align-items-center justify-content-center" style="min-height: 100vh; padding-top: 100px;"
           id="riwayat">
-          <h2 class="title p-2 text-center" style="border-bottom: 5px solid #ff0022; margin-left: 10px;">Riwayat</h2>
+          <h2 class="title p-2 text-center fw-bold" style="border-bottom: 5px solid #ff0022; margin-left: 10px;">Riwayat</h2>
           <div class=" d-flex align-items-center mb-5" style="width: 100%">
             <a href="{{route('history_page')}}" class="ms-auto btn fw-semibold border-0">Lihat Semua <i class="fa-solid fa-chevron-right"></i></a>
           </div>
@@ -148,7 +148,7 @@
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">{{$item->hypothesis->name}}</h5>
+                      <h5 class="card-title fw-bolder">{{$item->hypothesis->name}}</h5>
                       <p class="card-text">{{$item->value}}%</p>
                       <p class="card-text">{{$item->created_at->format('d/m/Y')}}</p>
                     </div>

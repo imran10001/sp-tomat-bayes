@@ -28,7 +28,7 @@
     <main>
         <div class="container">
             <section style="padding-top: 100px; padding-bottom: 100px;">
-            <h2 style="padding-bottom: 20px;" class="fw-semibold">Semua Riwayat</h2>
+            <h2 style="padding-bottom: 20px;" class="fw-bold">Semua Riwayat</h2>
             @foreach ($diagnosis_data as $item)
             <div class="card border-0 mb-3" style="width: 100%;">
                 <div class="row g-0 d-flex align-items-center justify-content-center">
@@ -37,7 +37,7 @@
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">{{$item->hypothesis->name}}</h5>
+                      <h5 class="card-title fw-semibold">{{$item->hypothesis->name}}</h5>
                       <p class="card-text">{{$item->value}}%</p>
                       <p class="card-text">{{$item->created_at->format('d/m/Y')}}</p>
                     </div>

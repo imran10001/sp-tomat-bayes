@@ -264,7 +264,8 @@ class LandingController extends Controller
         }
 
         // Mengambil data Hypothesis dengan ID $bestBayes
-        $bestHypothesisData = Hypothesis::find($bestBayes);
+        // $bestHypothesisData = Hypothesis::find($bestBayes);
+        $bestHypothesisData = Hypothesis::with('images')->find($bestBayes);
 
         // Ambil data Hypothesis berdasarkan ID yang ada di $totalBayes
         $hypothesesData = Hypothesis::whereIn('id', array_keys($totalBayes))->get()->keyBy('id');

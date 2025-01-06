@@ -57,8 +57,11 @@
                         <div class="mb-2">
                             <label for="">Solusi Mengatasi Penyakit :</label>
                             <textarea class="autoresizeTextarea" disabled name="" id="">{{ $bestHypothesisData->solution }}</textarea>
-                        </div>
-                        <img src="/storage/Hypothesis-Image/{{ $bestHypothesisData->image }}" class="rounded-4" height="500px" alt="Gambar Penyakit">
+                        </div>                        
+                        {{-- <img src="/storage/Hypothesis-Image/{{ $bestHypothesisData->image }}" class="rounded-4" height="500px" alt="Gambar Penyakit"> --}}
+                            @foreach ($bestHypothesisData->images as $item)
+                                <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="500px" class="me-3 rounded" alt="Gambar Penyakit">
+                            @endforeach
                         @else
                             <div>Data tidak ditemukan.</div>
                         @endif
@@ -146,7 +149,9 @@
                         <div class="card rounded-4 border-2 mb-5" style="max-width: 100vw;">
                             <div class="row g-0 align-items-center">
                                 <div class="col-md-3 rounded-4 me-5" style="max-height: 450px; overflow: hidden;">
-                                    <img src="/storage/Hypothesis-Image/{{ $hypothesis->image }}" class="img-fluid " alt="Gambar Penyakit">
+                                    {{-- <img src="/storage/Hypothesis-Image/{{ $hypothesis->image }}" class="img-fluid " alt="Gambar Penyakit"> --}}
+                                    <img src="/storage/Hypothesis-Image/{{$hypothesis->images->first()->image_path}}" class="img-fluid " alt="Gambar Penyakit">
+
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">

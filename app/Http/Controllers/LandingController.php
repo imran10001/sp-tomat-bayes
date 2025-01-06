@@ -147,9 +147,12 @@ class LandingController extends Controller
 
     public function history_detail($id)
     {
+        $diagnosis = Diagnosis::with('hypothesis.images')->findOrFail($id);
         return view('landing.history_detail', [
             'title' => 'Hypothesis',
-            'get_diagnosis' => Diagnosis::findOrFail($id)
+            // 'get_diagnosis' => Diagnosis::findOrFail($id)
+            'get_diagnosis' => $diagnosis
+            
         ]);
     }
 

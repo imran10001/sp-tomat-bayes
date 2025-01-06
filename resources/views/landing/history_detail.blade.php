@@ -59,7 +59,15 @@
                             <label for="">Solusi Mengatasi Penyakit :</label>
                             <textarea class="autoresizeTextarea" disabled name="" id="">{{ $get_diagnosis->hypothesis->solution }}</textarea>
                         </div>
-                        <img src="/storage/Hypothesis-Image/{{ $get_diagnosis->hypothesis->image }}" class="rounded-4" height="500px" alt="Gambar Penyakit">
+                        {{-- <img src="/storage/Hypothesis-Image/{{ $get_diagnosis->hypothesis->image }}" class="rounded-4" height="500px" alt="Gambar Penyakit"> --}}
+                        @if ($get_diagnosis->hypothesis && $get_diagnosis->hypothesis->images->isNotEmpty())
+
+                            @foreach ($get_diagnosis->hypothesis->images as $item)
+                                <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="500px" class="me-3 rounded" alt="Gambar Penyakit">
+                            @endforeach
+                        @else
+                            <p class="text-muted">Gambar tidak tersedia.</p>
+                        @endif
                         
                     </div>
                 </div>

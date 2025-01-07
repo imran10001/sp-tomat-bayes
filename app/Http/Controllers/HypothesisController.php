@@ -147,6 +147,23 @@ class HypothesisController extends Controller
 
         // Jika ada gambar baru yang diunggah
         if ($request->hasFile('image')) {
+            // Hapus gambar lama dari penyimpanan dan basis data
+            $oldImages = HypothesisImage::where('hypothesis_id', $hypothesis->id)->get();
+
+            foreach ($oldImages as $oldImage) {
+                // Hapus file dari penyimpanan
+                $imagePath = storage_path('app/public/Hypothesis-Image/' . $oldImage->image_path);
+                // if (file_exists($imagePath)) {
+                //     unlink($imagePath);
+                // }
+                if (Storage::exists('public/Hypothesis-Image/' . $oldImage->image_path)) {
+                    Storage::delete('public/Hypothesis-Image/' . $oldImage->image_path);
+                }
+
+                // Hapus record dari database
+                $oldImage->delete();
+            }
+
             foreach ($request->file('image') as $image) {
                 $imageName = 'Hypothesis_' . date('YmdHis') . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
                 $image->storeAs('Public/Hypothesis-Image', $imageName);
@@ -197,10 +214,20 @@ class HypothesisController extends Controller
         // Ambil data hypothesis berdasarkan ID
         $hypothesis = Hypothesis::findOrFail($id);
 
-        // Hapus semua gambar terkait
-        foreach ($hypothesis->images as $image) {
-            Storage::disk('local')->delete('Public/Hypothesis-Images/' . $image->image_path);
-            $image->delete();
+        $image = HypothesisImage::where('hypothesis_id', $hypothesis->id)->get();
+
+        foreach ($image as $oldImage) {
+            // Hapus file dari penyimpanan
+            $imagePath = storage_path('app/public/Hypothesis-Image/' . $oldImage->image_path);
+            // if (file_exists($imagePath)) {
+            //     unlink($imagePath);
+            // }
+            if (Storage::exists('public/Hypothesis-Image/' . $oldImage->image_path)) {
+                Storage::delete('public/Hypothesis-Image/' . $oldImage->image_path);
+            }
+
+            // Hapus record dari database
+            $oldImage->delete();
         }
 
         // // Hapus gambar jika ada

@@ -30,7 +30,7 @@
             <section style="padding-top: 100px; padding-bottom: 100px">
                 <div id="report">
                     <h2 class="fw-bolder">Hasil Diagnosa</h2>
-                    <div class="result">
+                    <div class="result" id="result">
                         @if(isset($bestHypothesisData))
                         <div class="mb-2">
                             <label for="">Nama Penyakit :</label>
@@ -66,81 +66,7 @@
                             <div>Data tidak ditemukan.</div>
                         @endif
                     </div>
-                    {{-- <table class="table">
-                        <tr >
-                            <td class="p-3">Nama</td>
-                            <td class="p-3">:</td>
-                            <td class="p-3">Nama User</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Gejala yang Dipilih</td>
-                            <td class="p-3">:</td>
-                            <td class="p-3">
-                                <ul>
-                                    @foreach($selectedEvidencesData as $evidence)
-                                    <li>- {{ $evidence -> name }}</li>
-                                    @endforeach
-                                 </ul>
-                            </td>
-                        </tr>
-                        @if(isset($bestHypothesisData))
-                        <tr>
-                            <td class="p-3">Nama Penyakit</td>
-                            <td class="p-3">:</td>
-                            <td class="p-3">{{ $bestHypothesisData->name }}</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Tingkat Kepastian</td>
-                            <td class="p-3">: </td>
-                            <td class="p-3"> {{ $maxTotalBayes }}%</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Deskripsi Tingkat Kepastian</td>
-                            <td class="p-3">: </td>
-                            <td class="p-3"> {{ $certainty }}</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Deskripsi Penyakit</td>
-                            <td class="p-3">:</td>
-                            <td> <textarea class="autoresizeTextarea" disabled name="" id=""  style="border: none; resize:none">{{ $bestHypothesisData->description }}</textarea></td>
-                        </tr>
-                        <tr>
-                            <td class="p-3">Solusi Mengatasi Penyakit</td>
-                            <td class="p-3">:</td>
-                            <td> <textarea class="autoresizeTextarea" disabled style="border: none; resize:none; width:100%">{{ $bestHypothesisData->solution }}</textarea></td>
-                        </tr>
-                        <tr>
-                            <td><img src="/storage/Hypothesis-Image/{{ $bestHypothesisData->image }}" height="500px" alt="Gambar Penyakit"></td>
-                        </tr>
-                        @else
-                            <div>Data tidak ditemukan.</div>
-                        @endif
-                    </table> --}}
-                    {{-- <h2 class="mt-5">Hasil Diagnosa Lainnya</h2>
-                    @foreach($totalBayes as $hypothesisId => $totalBayesValue)
-                    @php
-                        $hypothesis = $hypothesesData[$hypothesisId];
-                    @endphp
-                          <h3 class="mt-5">{{ $hypothesis->name }}</h3>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Persentase Penyakit</th>
-                                <th style="text-align: center;">Deskripsi Tingkat Kepastian</th>
-                                <th style="text-align: right;">Total Bayes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="vertical-align: middle;">
-                                <td>{{ number_format($totalBayesValue) }}%</td>
-                                <td style="text-align: center;">{{ $certaintyDescriptions[$hypothesisId] }}</td>
-                                <td style="text-align: right;">{{ number_format($totalBayesValue, 2) }}</td>
-                            </tr>                            
-                        </tbody>
-                    </table>
-                    @endforeach --}}
-                    
                     <h2 class="mt-5 mb-2 fw-bold">Hasil Diagnosa Lainnya</h2>
                     @foreach($totalBayes as $hypothesisId => $totalBayesValue)
                     @php
@@ -148,7 +74,7 @@
                     @endphp
                         <div class="card rounded-4 border-2 mb-5" style="max-width: 100vw;">
                             <div class="row g-0 align-items-center">
-                                <div class="col-md-3 rounded-4 me-5" style="max-height: 450px; overflow: hidden;">
+                                <div class="col-md-2 rounded-4 me-5" style="max-height: 450px; overflow: hidden;">
                                     {{-- <img src="/storage/Hypothesis-Image/{{ $hypothesis->image }}" class="img-fluid " alt="Gambar Penyakit"> --}}
                                     <img src="/storage/Hypothesis-Image/{{$hypothesis->images->first()->image_path}}" class="img-fluid " alt="Gambar Penyakit">
 
@@ -212,7 +138,7 @@
     </footer>
     <script>
         function printReport() {
-            const printContents = document.getElementById('report').innerHTML;
+            const printContents = document.getElementById('result').innerHTML;
             const originalContents = document.body.innerHTML;
             document.body.innerHTML = printContents;
             window.print();

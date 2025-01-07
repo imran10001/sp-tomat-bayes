@@ -42,10 +42,10 @@
                             <label for="">Solusi Mengatasi Penyakit :</label>
                             <textarea class="autoresizeTextarea" disabled>{{ $hypothesis->solution }}</textarea>
                         </div>
-                        {{-- <img src="/storage/Hypothesis-Image/{{ $hypothesis->image }}" height="500px" alt="Gambar Penyakit"> --}}
-                        @foreach ($hypothesis->images as $item)
-                            <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="500px" class="me-3 rounded" alt="Gambar Penyakit">
-                        @endforeach
+                            {{-- <img src="/storage/Hypothesis-Image/{{ $hypothesis->image }}" height="500px" alt="Gambar Penyakit"> --}}
+                            @foreach ($hypothesis->images as $item)
+                                <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="300px" class="me-3 rounded" alt="Gambar Penyakit">
+                            @endforeach
                     </div>
                 </div>
             </section>

@@ -130,7 +130,7 @@
           </div>
         </section>
         @if (auth()->check())
-        <section class="d-flex flex-column align-items-center justify-content-center" style="min-height: 100vh; padding-top: 100px;"
+        <section class="d-flex flex-column align-items-center justify-content-center" style="min-height: 50vh; padding-top: 100px;"
           id="riwayat">
           <h2 class="title p-2 text-center fw-bold" style="border-bottom: 5px solid #ff0022; margin-left: 10px;">Riwayat</h2>
           <div class=" d-flex align-items-center mb-5" style="width: 100%">
@@ -190,43 +190,6 @@
                       </div>
                     </div>
                   </div>
-              {{-- <tr class="row">
-                <td class="col">{{$item->hypothesis->name}}</td>
-                <td class="text-center col">{{$item->value}}%</td>
-                <td class="d-flex justify-content-end col">
-                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#modalId{{ $item->id }}"
-                    ><i class="fas fa-fw fa-trash"></i> </button>
-                  <div class="modal fade" 
-                  id="modalId{{ $item->id }}" 
-                  tabindex="-1" data-bs-backdrop="static"
-                    data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="modalTitleId">Delete</h5>
-                        </div>
-                        <div class="modal-body">
-                          Are you sure to delete 
-                          {{ $title }} "{{ $item->name }}"
-                          . If data deleted then data in rule
-                          deleted to.
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <form 
-                          action="{{ route('destroy_history', $item->id) }}" 
-                          method="post" class="d-niline">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>   --}}
               @endforeach            
             </tbody> 
           </table>  

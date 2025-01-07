@@ -73,32 +73,14 @@ class HypothesisController extends Controller
                 $imageName = 'Hypothesis_' . date('YmdHis') . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
                 $image->storeAs('Public/Hypothesis-Image', $imageName);
 
-                // Log::info('Image uploaded to: ' . $image);
-
-
                 // Simpan nama gambar ke tabel hypothesis_images
                 HypothesisImage::create([
                     'hypothesis_id' => $hypothesis->id,
                     'image_path' => $imageName,
                 ]);
 
-                // Log::info('Image saved to database: ' . $imageName);
-
             }
         }
-        
-        // $image = $request->file('image');
-        // $imageName = 'Hypothesis' . date('YmdHis') . '.' . $image->getClientOriginalExtension();
-        // $image->storeAs('Public/Hypothesis-Image', $imageName);
-
-        // // Buat data Hypothesis
-        // $hypothesis = Hypothesis::create([
-        //     'code' => $request->code,
-        //     'name' => $request->name,
-        //     'description' => $request->description,
-        //     'solution' => $request->solution,
-        //     'image' => $imageName // Menyimpan nama file gambar
-        // ]);
 
         // Buat data Rule untuk setiap Evidence
         foreach (Evidence::all() as $value) {
@@ -153,9 +135,7 @@ class HypothesisController extends Controller
             foreach ($oldImages as $oldImage) {
                 // Hapus file dari penyimpanan
                 $imagePath = storage_path('app/public/Hypothesis-Image/' . $oldImage->image_path);
-                // if (file_exists($imagePath)) {
-                //     unlink($imagePath);
-                // }
+
                 if (Storage::exists('public/Hypothesis-Image/' . $oldImage->image_path)) {
                     Storage::delete('public/Hypothesis-Image/' . $oldImage->image_path);
                 }
@@ -175,22 +155,6 @@ class HypothesisController extends Controller
                 ]);
             }
         }
-
-        // // Jika ada gambar baru yang diunggah
-        // if ($request->hasFile('image')) {
-        //     // Hapus gambar lama jika ada
-        //     if ($hypothesis->image && Storage::disk('local')->exists('Hypothesis-Image/' . $hypothesis->image)) {
-        //         Storage::disk('local')->delete('Public/Hypothesis-Image/' . $hypothesis->image);
-        //     }
-
-        //     // Unggah gambar baru
-        //     $image = $request->file('image');
-        //     $imageName = 'Hypothesis_' . date('YmdHis') . '.' . $image->getClientOriginalExtension();
-        //     $image->storeAs('Public/Hypothesis-Image', $imageName);
-
-        //     // Update nama gambar di database
-        //     $hypothesis->image = $imageName;
-        // }
 
         // Update data lainnya
         $hypothesis->update([
@@ -219,9 +183,7 @@ class HypothesisController extends Controller
         foreach ($image as $oldImage) {
             // Hapus file dari penyimpanan
             $imagePath = storage_path('app/public/Hypothesis-Image/' . $oldImage->image_path);
-            // if (file_exists($imagePath)) {
-            //     unlink($imagePath);
-            // }
+
             if (Storage::exists('public/Hypothesis-Image/' . $oldImage->image_path)) {
                 Storage::delete('public/Hypothesis-Image/' . $oldImage->image_path);
             }
@@ -230,10 +192,6 @@ class HypothesisController extends Controller
             $oldImage->delete();
         }
 
-        // // Hapus gambar jika ada
-        // if ($hypothesis->image) {
-        //     Storage::disk('local')->delete('Public/Hypothesis-Image/' . $hypothesis->image);
-        // }
         Diagnosis::where('hypothesis_id',$id)->delete();
         Rule::where('hypothesis_id',$id)->delete();
         Hypothesis::where('id',$id)->delete();

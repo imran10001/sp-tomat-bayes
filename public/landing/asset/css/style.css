@@ -17,7 +17,9 @@ header{
     /* border: 1px solid; */
     position: fixed;
     width: 100%;
-    background-color: #fff;
+    /* background-color: #fff; */
+
+    background-color: #f8f9fa;
     top: 0px;
     /* border-bottom: 1px solid #FF2542; */
     border-bottom: 2px solid #04e762;
@@ -60,7 +62,7 @@ header nav .nav-menu{
 
 header nav .nav-menu a{
     text-decoration: none;
-    color: #000000;
+    color: #343a40;
     font-weight: 400;
     transition: ease-in-out 200ms;
 
@@ -87,7 +89,9 @@ header nav .nav-menu .login:hover{
 
 footer{
     height: 120px;
-    background-color: #FF2542;
+    background-color: #343a40;
+
+    /* background-color: #F00; */
     bottom: 0;
     display: flex;
     align-items: center;
@@ -97,12 +101,14 @@ footer{
 section{
     /* padding-top: 100px; */
     /* padding-bottom: 100px; */
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    padding: 80px 20px;
 }
 
 section  h1{
     color: #ff0022;
-    font-size: 3vw;
+    font-size: 2.5rem;
+    font-weight: 800;
 }
 
 section  p{
@@ -125,11 +131,22 @@ section a:hover{
     border: 1px solid #ff0022;
 }
 
+.daftar-penyakit{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Grid responsif */
+    gap: 20px; /* Jarak antar item */
+}
+
 .img-cover{
     border-radius: 40px;
     width: 200px;
     height: 200px;
     overflow: hidden;
+}
+
+.img-cover img {
+    width: 100%; /* Gambar mengikuti lebar kontainer */
+    height: auto; /* Tinggi otomatis */
 }
 
 /* .diagnosa{
@@ -196,6 +213,10 @@ section a:hover{
     border: 1px solid;
 }
 
+.modal {
+    transition: opacity 0.3s ease;
+}
+
 
 @media only screen and (max-width: 991px) { 
     #beranda{
@@ -214,5 +235,9 @@ section a:hover{
     section{
         padding-top: 100px;
         min-height: max-content;
+    }
+
+    section h1 {
+        font-size: 2rem; /* Ukuran lebih kecil di mobile */
     }
 }

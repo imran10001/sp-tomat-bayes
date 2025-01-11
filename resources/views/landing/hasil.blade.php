@@ -91,37 +91,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="diagnosis-item border mb-5">
-                            <div class="d-flex align-items-center">
-                                <div class="col-md-2">
-                                    <img src="/storage/Hypothesis-Image/{{ $hypothesis->image }}" height="200px" alt="Gambar Penyakit">
-                                </div>
-                                <div class="col-md-10">
-                                    <h3>{{ $hypothesis->name }}</h3>
-                                    <span class="d-block">Persentase Penyakit : {{ number_format($totalBayesValue) }}%</span>
-                                    <span class="d-block">Tingkat Kepastian Penyakit : {{ $certaintyDescriptions[$hypothesisId] }}</span>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Persentase Penyakit</th>
-                                                <th style="text-align: center;">Deskripsi Tingkat Kepastian</th>
-                                                <th style="text-align: right;">Total Bayes</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr style="vertical-align: middle;">
-                                                <td>{{ number_format($totalBayesValue) }}%</td>
-                                                <td style="text-align: center;">{{ $certaintyDescriptions[$hypothesisId] }}</td>
-                                                <td style="text-align: right;">{{ number_format($totalBayesValue, 2) }}</td>
-                                            </tr>                            
-                                        </tbody>
-                                    </table>
-                                    <a href="" class="btn btn-primary mt-2">
-                                        Lihat Detail
-                                    </a>
-                                </div>
-                            </div>
-                        </div> --}}
+
                     @endforeach
 
                     

@@ -213,6 +213,17 @@ section a:hover{
     border: 1px solid;
 }
 
+.deskripsi {
+    width: 100%; /* Agar textarea mengikuti lebar container */
+    min-height: 50px; /*Tinggi minimal*/
+    resize: none; /* Matikan manual resize */
+    overflow: hidden; /* Sembunyikan scrollbar */
+    box-sizing: border-box; /* Agar padding dihitung ke dalam lebar */
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid;
+}
+
 .modal {
     transition: opacity 0.3s ease;
 }
@@ -239,5 +250,17 @@ section a:hover{
 
     section h1 {
         font-size: 2rem; /* Ukuran lebih kecil di mobile */
+    }
+}
+
+@media print {
+    .deskripsi {
+        height: 500px !important; /* Atur tinggi otomatis */
+        resize: none; /* Matikan manual resize */
+        overflow: hidden; /* Sembunyikan scrollbar */
+        box-sizing: border-box; /* Agar padding dihitung ke dalam lebar */
+        padding: 15px;
+        border-radius: 20px;
+        border: 1px solid;
     }
 }

@@ -209,8 +209,10 @@ section a:hover{
     overflow: hidden; /* Sembunyikan scrollbar */
     box-sizing: border-box; /* Agar padding dihitung ke dalam lebar */
     padding: 15px;
-    border-radius: 20px;
-    border: 1px solid;
+    /* border-radius: 20px; */
+    border: none;
+    outline: none;
+    background: none;
 }
 
 .deskripsi {
@@ -224,10 +226,26 @@ section a:hover{
     border: 1px solid;
 }
 
-.modal {
-    transition: opacity 0.3s ease;
+.carousel{
+    height: 500px;
 }
 
+.modal-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.modal-image {
+    max-height: 75vh;   /* Menyesuaikan tinggi modal */
+    object-fit: contain; /* Memastikan gambar tetap proporsional */
+}
+
+.img-diagnosis{
+    height: 150px; 
+    width:  150px;
+}
 
 @media only screen and (max-width: 991px) { 
     #beranda{
@@ -252,6 +270,25 @@ section a:hover{
         font-size: 2rem; /* Ukuran lebih kecil di mobile */
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .img-diagnosis{
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+    }
+
+    .modal-image {
+            max-height: 60vh; /* Untuk layar kecil, tinggi dikurangi agar tidak berdesakan */
+    }
+} 
+
+@media only screen and (max-width: 480px) {
+    .img-diagnosis img{
+        width: 100%;
+        height: 100%;
+    }
+} 
 
 @media print {
     .deskripsi {

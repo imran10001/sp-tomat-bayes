@@ -25,11 +25,30 @@
         </div>
         </div>
     </header>
+
     <main>
         <div class="container">
             <section style="padding-top: 100px; padding-bottom: 100px">
-                <h2 class="mb-5 text-capitalize fw-bolder">{{$get_hypothesis->name}}</h2>                    
-                     <div class="mb-3">
+                <h2 class="mb-5 text-capitalize fw-bolder">{{$get_hypothesis->name}}</h2>
+                <div id="carouselExample" class="carousel slide overflow-hidden w-50 translate-middle-x start-50">
+                    <div class="carousel-inner "  data-bs-toggle="modal" data-bs-target="#myModal">
+                        @foreach ($get_hypothesis->images as $item)
+                        <div class="carousel-item active">
+                            <img src="/storage/Hypothesis-Image/{{$item->image_path}}" class="d-block w-100" alt="...">
+                        </div>
+                        @endforeach
+                        
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                    <div class="mb-3 mt-5">
                         <label for="">Deskripsi Penyakit :</label>
                         <textarea id="" class="autoresizeTextarea mt-2" disabled class="p-3 rounded-4">{{$get_hypothesis->description}}</textarea>
                     </div>
@@ -37,15 +56,91 @@
                         <label for="">Penanganan Penyakit :</label>
                         <textarea id="" class="autoresizeTextarea mt-2" disabled class="p-3 rounded-4">{{$get_hypothesis->solution}}</textarea>
                     </div>
-                    @foreach ($get_hypothesis->images as $item)
-                        <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="500px" class="me-3 rounded" alt="Gambar Penyakit">
-                    @endforeach
+                   
             </section>
         </div>
     </main>
+
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content position-relative"> <!-- Modal Content -->
+            <div class="modal-header">
+                <h5 class="modal-title">Image Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center align-items-center position-relative " style="min-height: 70vh;">
+                <!-- Tombol Prev (di luar kiri gambar) -->
+                <button class="btn btn-outline-dark position-absolute start-0 top-50 translate-middle-y me-2" 
+                        type="button" data-bs-target="#modalCarousel" data-bs-slide="prev" style="z-index: 1;">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <!-- Carousel (Gambar di Tengah) -->
+                <div id="modalCarousel" class="carousel slide overflow-hidden" data-bs-ride="carousel" style="max-width: 80%; height: 650px">
+                    <div class="carousel-inner text-center d-flex align-item-center" style="height: 100%">
+                        @foreach ($get_hypothesis->images as $key => $item)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}  " style="height: 100%">
+                                <img src="/storage/Hypothesis-Image/{{$item->image_path}}" 
+                                     class="d-block mx-auto img-fluid modal-image" 
+                                     alt="Image"
+                                     style="height: 100%" >
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- Tombol Next (di luar kanan gambar) -->
+                <button class="btn btn-outline-dark position-absolute end-0 top-50 translate-middle-y ms-2" 
+                        type="button" data-bs-target="#modalCarousel" data-bs-slide="next" style="z-index: 1;">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    {{-- <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered" style="height: 75vh">
+            <div class="modal-content" style="height: 100%">
+                <div class="modal-header">
+                    <h5 class="modal-title">Image Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body overflow-hidden">
+                    <div id="modalCarousel" class="carousel slide overflow-hidden h-100" data-bs-ride="carousel">
+                        <div class="carousel-inner ">
+                            @foreach ($get_hypothesis->images as $key => $item)
+                                <div class="carousel-item {{ $key == 0 ? 'active' : '' }} ">
+                                    <img src="/storage/Hypothesis-Image/{{$item->image_path}}" class="d-block h-200" alt="Image">
+                                </div>
+                            @endforeach
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
     <footer>
         <span style="color: white;">- 2024 -</span>
     </footer>
+    <script>
+    // Menampilkan modal ketika gambar di carousel diklik
+    document.querySelectorAll('#imageCarousel .carousel-item img').forEach(img => {
+        img.addEventListener('click', function () {
+            new bootstrap.Modal(document.getElementById('imageModal')).show();
+        });
+    });
+</script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>

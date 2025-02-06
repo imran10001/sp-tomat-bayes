@@ -83,7 +83,7 @@
   <main>
     <div class="container">
       <div class="row">
-        <section class="  gap-3 d-flex align-items-center" id="beranda" style="min-height: 100vh">
+        <section class="hero gap-3 d-flex align-items-center" id="beranda" style="min-height: 100vh">
           <img src="{{asset('landing/asset/icons/tomato-hero.png')}}" alt="TOMAT" class="w-50" />
           <div class="banner">
             <h1 class="fw-bolder">SISTEM PAKAR DIAGNOSA PENYAKIT TANAMAN TOMAT</h1>
@@ -143,13 +143,13 @@
               @foreach ($diagnosis_data as $item)              
               <div class="card border-0 mb-3" style="width: 100%;">
                 <div class=" g-0 d-flex flex-row align-items-center justify-content-between mx-5">
-                  <div class="d-flex">
+                  <div class="d-flex align-items-center">
                     <div class="img-diagnosis d-flex justify-content-center align-items-center border border-1 rounded-5 overflow-hidden">
                       <img src="storage/Hypothesis-Image/{{$item->hypothesis->images->first()->image_path}}" class="img-size rounded-start border img-fluid" style="height: 100%; width: 100%;"  alt="...">
                     </div>
-                    <div class="col ">
-                      <div class="card-body">
-                        <h5 class="card-title fw-bolder">{{$item->hypothesis->name}}</h5>
+                    <div class="col border-0 d-flex align-items-center">
+                      <div class="card-body ">
+                        <h5 class="hypothesis-name card-title fw-bolder">{{$item->hypothesis->name}}</h5>
                         <span class="card-text">{{$item->value}}%</span><br>
                         <span class="card-text">{{$item->created_at->format('d/m/Y')}}</span>
                       </div>                    

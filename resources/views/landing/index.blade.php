@@ -108,10 +108,8 @@
         </section>
         <section class=" d-flex flex-column align-items-center justify-content-center"  id="nama_penyakit">
           <h2 class="text-center p-2 fw-bold" style="border-bottom: 5px solid #ff0022;">Nama Penyakit</h2>
-          <div class=" d-flex align-items-center mb-5" style="width: 100%">
-            <a href="{{route('hypothesis_page')}}" class="ms-auto btn fw-semibold border-0">Lihat Semua <i class="fa-solid fa-chevron-right"></i></a>
-          </div>
-          <div class="daftar-penyakit p-3 mt-5 gap-3 row justify-content-center">
+
+          <div class="daftar-penyakit p-3 mt-5 mb-4 gap-3 row justify-content-center">
             @foreach($hypothesis_data as $item)
             <a href="{{ route('hypothesis_detail',  $item->id)}}" class="card border-3 rounded-5 align-items-center p-3 text-decoration-none" style="width: 16rem; cursor: pointer;">
               <div class="img-cover">
@@ -128,37 +126,36 @@
             </a>
             @endforeach
           </div>
+          <div class=" d-flex align-items-center justify-content-center mb-5" style="width: 100%">
+            <a href="{{route('hypothesis_page')}}" class="btn fw-semibold border rounded-pill text-light" style="background-color: #ff0022">Lihat Semua <i class="fa-solid fa-chevron-right  "></i></a>
+          </div>
         </section>
         @if (auth()->check())
         <section class="d-flex flex-column align-items-center justify-content-center" style="min-height: 50vh; padding-top: 100px;"
           id="riwayat">
-          <h2 class="title p-2 text-center fw-bold" style="border-bottom: 5px solid #ff0022; margin-left: 10px;">Riwayat</h2>
-          <div class=" d-flex align-items-center mb-5" style="width: 100%">
-            <a href="{{route('history_page')}}" class="ms-auto btn fw-semibold border-0">Lihat Semua <i class="fa-solid fa-chevron-right"></i></a>
-          </div>
-          <!-- <div class="table-responsive"> -->
-          
-          <table id="dataTable" class="p-3 mt-5 gap-3 table table-borderless"  width="100%" cellspacing="0">
+          <h2 class="title p-2 text-center fw-bold mb-5" style="border-bottom: 5px solid #ff0022; margin-left: 10px;">Riwayat</h2>
+          <!-- <div class="table-responsive"> -->          
+          <table id="dataTable" class="p-3 gap-3 table table-borderless mb-4"  width="100%" cellspacing="0">
             {{-- <tbody class="pt-2"> --}}
               @foreach ($diagnosis_data as $item)              
               <div class="card border-0 mb-3" style="width: 100%;">
                 <div class=" g-0 d-flex flex-row align-items-center justify-content-between mx-5">
                   <div class="d-flex align-items-center">
-                    <div class="img-diagnosis d-flex justify-content-center align-items-center border border-1 rounded-5 overflow-hidden">
+                    <div class="img-diagnosis d-flex justify-content-center align-items-center border border-1 overflow-hidden">
                       <img src="storage/Hypothesis-Image/{{$item->hypothesis->images->first()->image_path}}" class="img-size rounded-start border img-fluid" style="height: 100%; width: 100%;"  alt="...">
                     </div>
                     <div class="col border-0 d-flex align-items-center">
                       <div class="card-body ">
                         <h5 class="hypothesis-name card-title fw-bolder">{{$item->hypothesis->name}}</h5>
-                        <span class="card-text">{{$item->value}}%</span><br>
-                        <span class="card-text">{{$item->created_at->format('d/m/Y')}}</span>
+                        <span class="span card-text">{{$item->value}}%</span>
+                        <span class="span card-text">{{$item->created_at->format('d/m/Y')}}</span>
                       </div>                    
                     </div>
                   </div>
 
                   <div class="col-md-1 d-flex justify-content-center justify-content-md-end gap-1 ">
-                    <button type="button" class="btn btn-danger text-light" data-bs-toggle="modal" data-bs-target="#modalId{{ $item->id }}"><i class="fa-solid fa-trash"></i></button>
-                    <a href="{{ route('history_detail',  $item->id)}}" class="btn btn-primary text-light"><i class="fa-solid fa-chevron-right"></i></a>
+                    <button type="button" class="btn text-danger" data-bs-toggle="modal" data-bs-target="#modalId{{ $item->id }}"><i class="fa-solid fa-trash"></i></button>
+                    <a href="{{ route('history_detail',  $item->id)}}" class="btn text-primary fs-5"><i class="fa-solid fa-chevron-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -192,7 +189,10 @@
                   </div>
               @endforeach            
             </tbody> 
-          </table>  
+          </table>
+          <div class=" d-flex align-items-center justify-content-center mb-5" style="width: 100%">
+            <a href="{{route('history_page')}}" class="btn fw-semibold border rounded-pill text-light" style="background-color: #ff0022">Lihat Semua <i class="fa-solid fa-chevron-right  "></i></a>
+          </div>
         </section>
         @endif        
           </div>

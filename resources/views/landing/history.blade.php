@@ -29,24 +29,25 @@
         <div class="container">
             <section style="padding-top: 100px; padding-bottom: 100px;">
             <h2 style="padding-bottom: 20px;" class="fw-bold">Semua Riwayat</h2>
-            @foreach ($diagnosis_data as $item)
+            <table id="dataTable" class="p-3 gap-3 table table-borderless mb-4"  width="100%" cellspacing="0">
+              @foreach ($diagnosis_data as $item)
               <div class="card border-0 mb-3" style="width: 100%;">
                 <div class=" g-0 d-flex flex-row align-items-center justify-content-between mx-5">
-                  <div class="d-flex">
-                    <div class="img-diagnosis d-flex justify-content-center align-items-center border border-1 rounded-5 overflow-hidden">
+                  <div class="d-flex align-items-center">
+                    <div class="img-diagnosis d-flex justify-content-center align-items-center border border-1 overflow-hidden">
                       <img src="storage/Hypothesis-Image/{{$item->hypothesis->images->first()->image_path}}" class="img-size rounded-start border img-fluid" style="height: 100%; width: 100%;"  alt="...">
                     </div>
                     <div class="col ">
                       <div class="card-body">
-                        <h5 class="card-title fw-bolder">{{$item->hypothesis->name}}</h5>
-                        <span class="card-text">{{$item->value}}%</span><br>
-                        <span class="card-text">{{$item->created_at->format('d/m/Y')}}</span>
+                        <h5 class="hypothesis-name card-title fw-bolder">{{$item->hypothesis->name}}</h5>
+                        <span class="span card-text">{{$item->value}}%</span>
+                        <span class="span card-text">{{$item->created_at->format('d/m/Y')}}</span>
                       </div>                    
                     </div>
                   </div>
                   <div class="col-md-1 d-flex justify-content-center justify-content-md-end gap-1 ">
-                    <button type="button" class="btn btn-danger text-light" data-bs-toggle="modal" data-bs-target="#modalId{{ $item->id }}"><i class="fa-solid fa-trash"></i></button>
-                    <a href="{{ route('history_detail',  $item->id)}}" class="btn btn-primary text-light"><i class="fa-solid fa-chevron-right"></i></a>
+                    <button type="button" class="btn text-danger" data-bs-toggle="modal" data-bs-target="#modalId{{ $item->id }}"><i class="fa-solid fa-trash"></i></button>
+                    <a href="{{ route('history_detail',  $item->id)}}" class="btn text-primary fs-5"><i class="fa-solid fa-chevron-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -79,6 +80,8 @@
                     </div>
                   </div>
                   @endforeach
+            </table>
+
             </section>
         </div>
     </main>

@@ -31,8 +31,8 @@
             <h2 style="padding-bottom: 20px;" class="fw-bold">Semua Riwayat</h2>
             <table id="dataTable" class="p-3 gap-3 table table-borderless mb-4"  width="100%" cellspacing="0">
               @foreach ($diagnosis_data as $item)
-              <div class="card border-0 mb-3" style="width: 100%;">
-                <div class=" g-0 d-flex flex-row align-items-center justify-content-between mx-5">
+              <div class="card mb-3 d-flex align-items-center border-0" style="width: 100%;">
+                <div class=" g-0 d-flex flex-row align-items-center justify-content-between mx-5" style="width: 100%">
                   <div class="d-flex align-items-center">
                     <div class="img-diagnosis d-flex justify-content-center align-items-center border border-1 overflow-hidden">
                       <img src="storage/Hypothesis-Image/{{$item->hypothesis->images->first()->image_path}}" class="img-size rounded-start border img-fluid" style="height: 100%; width: 100%;"  alt="...">

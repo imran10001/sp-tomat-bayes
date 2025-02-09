@@ -32,11 +32,11 @@
                 <div id="report">
                     <h2 class="fw-bolder">Hasil Diagnosis</h2>
                     <div class="result">
-                        <div id="carouselExample" class="carousel slide overflow-hidden w-50 translate-middle-x start-50">
+                        <div id="carouselExample" class="carousel slide overflow-hidden w-50 translate-middle-x start-50 border border-2">
                             <div class="carousel-inner "  data-bs-toggle="modal" data-bs-target="#myModal">
                                 @foreach ($get_diagnosis->hypothesis->images as $item)
                                 <div class="carousel-item active">
-                                    <img src="/storage/Hypothesis-Image/{{$item->image_path}}" class="d-block w-100" alt="...">
+                                    <img src="/storage/Hypothesis-Image/{{$item->image_path}}" class="d-block w-100 h-100" alt="...">
                                 </div>
                                 @endforeach
                                 

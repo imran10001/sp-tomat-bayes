@@ -137,10 +137,15 @@ section a:hover{
     gap: 20px; /* Jarak antar item */
 }
 
+.daftar-penyakit .penyakit{
+    width: 16rem; 
+    cursor: pointer;
+}
+
 .img-cover{
     border-radius: 40px;
-    width: 200px;
-    height: 200px;
+    width: 12rem;
+    height: 12rem;
     overflow: hidden;
 }
 
@@ -278,6 +283,21 @@ section a:hover{
 }
 
 @media only screen and (max-width: 768px) {
+    .daftar-penyakit .penyakit{
+        width: 13rem; 
+        cursor: pointer;
+    }
+
+    .img-cover{
+        border-radius: 40px;
+        width: 10rem;
+        height: 10rem;
+        overflow: hidden;
+    }
+
+    .card-body h5{
+        font-size: 0.9rem;
+    }
     .img-diagnosis{
         width: 100px;
         height: 100px;
@@ -290,6 +310,22 @@ section a:hover{
 } 
 
 @media only screen and (max-width: 480px) {
+    .daftar-penyakit .penyakit{
+        width: 11rem; 
+        cursor: pointer;
+    }
+
+    .img-cover{
+        border-radius: 30px;
+        width: 7rem;
+        height: 7rem;
+        overflow: hidden;
+    }
+
+    .card-body h5{
+        font-size: 0.9rem;
+    }
+
     .img-diagnosis{
         width: 50px;
         height: 50px;

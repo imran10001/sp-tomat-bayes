@@ -111,7 +111,7 @@
 
           <div class="daftar-penyakit p-3 mt-5 mb-4 gap-3 row justify-content-center">
             @foreach($hypothesis_data as $item)
-            <a href="{{ route('hypothesis_detail',  $item->id)}}" class="card border-3 rounded-5 align-items-center p-3 text-decoration-none" style="width: 16rem; cursor: pointer;">
+            <a href="{{ route('hypothesis_detail',  $item->id)}}" class="penyakit card border-3 rounded-5 align-items-center p-3 text-decoration-none">
               <div class="img-cover">
                 @if ($item->images->isNotEmpty())
                     <img src="/storage/Hypothesis-Image/{{$item->images->first()->image_path}}" height="300px" class="me-3 rounded" alt="Gambar Penyakit">
@@ -120,7 +120,7 @@
                 @endif
                 {{-- <img src="/storage/Hypothesis-Image/{{$item->images->first()->image_path}}" class="card-img" alt="Gambar Penyakit"> --}}
               </div>
-              <div class="card-body">
+              <div class="card-body d-flex justify-content-center align-items-center border">
                 <h5 class="card-title text-center fw-semibold text-capitalize fw-bolder">{{$item->name}}</h5>
               </div>
             </a>

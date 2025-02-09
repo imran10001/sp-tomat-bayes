@@ -32,23 +32,23 @@
                 @foreach ($hypothesis_data as $item)
                 <div class="card border-0 mb-3" style="width: 100%;">
                   <div class=" g-0 d-flex flex-row align-items-center justify-content-between mx-5">
-                    <div class="d-flex">
-                      <div class="img-diagnosis d-flex justify-content-center align-items-center border border-1 rounded-5 overflow-hidden">
+                    <div class="d-flex align-items-center">
+                      <div class="img-diagnosis d-flex justify-content-center align-items-center border border-1 overflow-hidden">
                         {{-- <img src="storage/Hypothesis-Image/{{$item->hypothesis->images->first()->image_path}}" class="img-size rounded-start border img-fluid" style="height: 100%; width: 100%;"  alt="..."> --}}
                         @if ($item->images->isNotEmpty())
-                            <img src="/storage/Hypothesis-Image/{{$item->images->first()->image_path}}" class="img-size rounded-start border img-fluid" alt="Gambar Penyakit">
+                            <img src="/storage/Hypothesis-Image/{{$item->images->first()->image_path}}" class="img-size rounded-start border img-fluid" style="height: 100%; width: 100%;" alt="Gambar Penyakit">
                             @else
                                 <p>Gambar tidak tersedia.</p>
                           @endif
                       </div>
                       <div class="col d-flex align-items-center">
                         <div class="card-body">
-                          <h5 class="card-title fw-bolder">{{$item->name}}</h5>
+                          <h5 class="hypothesis-name card-title fw-bolder">{{$item->name}}</h5>
                         </div>                    
                       </div>
                     </div>
                     <div class="col-md-1 d-flex justify-content-center justify-content-md-end gap-1 ">
-                      <a href="{{ route('history_detail',  $item->id)}}" class="btn btn-primary text-light"><i class="fa-solid fa-chevron-right"></i></a>
+                      <a href="{{ route('hypothesis_detail',  $item->id)}}" class="btn text-primary"><i class="fa-solid fa-chevron-right"></i></a>
                     </div>
                   </div>
                 </div>

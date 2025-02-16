@@ -120,7 +120,7 @@
                 @endif
                 {{-- <img src="/storage/Hypothesis-Image/{{$item->images->first()->image_path}}" class="card-img" alt="Gambar Penyakit"> --}}
               </div>
-              <div class="card-body d-flex justify-content-center align-items-center border">
+              <div class="card-body d-flex justify-content-center align-items-center">
                 <h5 class="card-title text-center fw-semibold text-capitalize fw-bolder">{{$item->name}}</h5>
               </div>
             </a>

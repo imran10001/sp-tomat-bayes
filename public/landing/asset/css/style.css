@@ -236,6 +236,7 @@ section a:hover{
 
 .carousel{
     height: 500px;
+    border: 3px solid red;
 }
 
 .modal-body {
@@ -280,6 +281,10 @@ section a:hover{
     section h1 {
         font-size: 2rem; /* Ukuran lebih kecil di mobile */
     }
+
+    .carousel{
+    height: 400px;
+}
 }
 
 @media only screen and (max-width: 768px) {
@@ -305,7 +310,11 @@ section a:hover{
     }
 
     .modal-image {
-            max-height: 60vh; /* Untuk layar kecil, tinggi dikurangi agar tidak berdesakan */
+        max-height: 60vh; /* Untuk layar kecil, tinggi dikurangi agar tidak berdesakan */
+    }
+
+    .carousel{
+        height: 280px;
     }
 } 
 
@@ -344,6 +353,10 @@ section a:hover{
 
     .hypothesis-name{
         font-size: 12px;
+    }
+
+    .carousel{
+        height: 250px;
     }
 } 
 

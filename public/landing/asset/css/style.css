@@ -236,7 +236,7 @@ section a:hover{
 
 .carousel{
     height: 500px;
-    border: 3px solid red;
+    width: 100%;
 }
 
 .modal-body {

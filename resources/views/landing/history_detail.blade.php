@@ -32,7 +32,34 @@
                 <div id="report">
                     <h2 class="fw-bolder">Hasil Diagnosis</h2>
                     <div class="result">
-                        <div id="carouselExample" class="carousel slide overflow-hidden w-50 translate-middle-x start-50 border border-2">
+                        <div class="carousel modal-body d-flex justify-content-center align-items-center position-relative translate-middle-x start-50" >
+                            <!-- Tombol Prev (di luar kiri gambar) -->
+                            <button class="btn btn-outline-dark position-absolute start-0 top-50 translate-middle-y me-2" 
+                                    type="button" data-bs-target="#Carousel" data-bs-slide="prev" style="z-index: 1;">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+
+                            <!-- Carousel (Gambar di Tengah) -->
+                            <div id="Carousel" class="carousel  slide overflow-hidden" data-bs-ride="carousel" style="max-width: 80%; height: 100%" data-bs-toggle="modal" data-bs-target="#myModal">
+                                <div class="carousel-inner text-center d-flex align-item-center" style="height: 100%">
+                                    @foreach ($get_diagnosis->hypothesis->images as $key => $item)
+                                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}  " style="height: 100%">
+                                            <img src="/storage/Hypothesis-Image/{{$item->image_path}}" 
+                                                class="d-block mx-auto img-fluid modal-image" 
+                                                alt="Image"
+                                                style="height: 100%" >
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <!-- Tombol Next (di luar kanan gambar) -->
+                            <button class="btn btn-outline-dark position-absolute end-0 top-50 translate-middle-y ms-2" 
+                                    type="button" data-bs-target="#Carousel" data-bs-slide="next" style="z-index: 1;">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        {{-- <div id="carouselExample" class="carousel slide overflow-hidden w-50 translate-middle-x start-50 border border-2">
                             <div class="carousel-inner "  data-bs-toggle="modal" data-bs-target="#myModal">
                                 @foreach ($get_diagnosis->hypothesis->images as $item)
                                 <div class="carousel-item active">
@@ -49,7 +76,7 @@
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
-                        </div>
+                        </div> --}}
                         <div class="mb-2 mt-5">
                             <label for="">Nama Penyakit :</label>
                             <textarea class="autoresizeTextarea" disabled name="" id="">{{$get_diagnosis->hypothesis->name}}

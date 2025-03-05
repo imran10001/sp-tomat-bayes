@@ -90,7 +90,7 @@
             <p style="text-indent: 30px">
               Sistem pakar adalah sistem komputer yang dirancang untuk menyelesaikan masalah atau memberikan solusi yang rumit dengan cara mengaplikasikan pengetahuan dari seorang ahli dalam bidang tertentu. Sistem pakar memanfaatkan berbagai macam metode untuk menghasilkan solusi yang tepat dan efektif. Salah satu metode yang sering digunakan dalam sistem pakar adalah metode Teorema Bayes.
             </p>
-            <a href="#diagnosa" class="button text-decoration-none p-2 rounded fw-medium">Mulai Diagnosa</a>
+            <a href="#diagnosa" class="button text-decoration-none p-2 rounded-pill fw-medium">Mulai Diagnosa</a>
           </div>
         </section>
         <section class=" d-flex flex-column align-items-center justify-content-center"
@@ -103,7 +103,7 @@
               penyakit. Hasil diagnosis akan disimpan dalam sistem. Pengguna dapat melihat kembali hasil diagnosis pada menu 
               riwayat.
               </p>
-            <a href="{{ route('diagnosa')}}" class="button text-center d-block rounded py-2">Mulai Diagnosa</a>
+            <a href="{{ route('diagnosa')}}" class="button text-center d-block rounded-pill py-2">Mulai Diagnosa</a>
           </div>
         </section>
         <section class=" d-flex flex-column align-items-center justify-content-center"  id="nama_penyakit">
@@ -147,7 +147,7 @@
                     <div class="col border-0 d-flex align-items-center">
                       <div class="card-body ">
                         <h5 class="hypothesis-name card-title fw-bolder">{{$item->hypothesis->name}}</h5>
-                        <span class="span card-text">{{$item->value}}%</span>
+                        <small class="span card-text d-block">{{$item->value}}%</small>
                         <span class="span card-text">{{$item->created_at->format('d/m/Y')}}</span>
                       </div>                    
                     </div>

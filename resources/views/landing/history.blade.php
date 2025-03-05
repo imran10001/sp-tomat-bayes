@@ -40,7 +40,7 @@
                     <div class="col ">
                       <div class="card-body">
                         <h5 class="hypothesis-name card-title fw-bolder">{{$item->hypothesis->name}}</h5>
-                        <span class="span card-text">{{$item->value}}%</span>
+                        <span class="span card-text d-block">{{$item->value}}%</span>
                         <span class="span card-text">{{$item->created_at->format('d/m/Y')}}</span>
                       </div>                    
                     </div>

@@ -138,9 +138,9 @@
           <table id="dataTable" class="p-3 gap-3 table table-bordered mb-4"  width="100%" cellspacing="0">
             {{-- <tbody class="pt-2"> --}}
               @foreach ($diagnosis_data as $item)              
-              <div class="card border-0 mb-3 d-flex align-items-center" style="width: 100%;">
-                <div class=" g-0 d-flex flex-row align-items-center justify-content-between mx-5" style="width: 90%;">
-                  <div class="d-flex align-items-center">
+              <a href="{{ route('history_detail',  $item->id)}}" class="card border-0 mb-3 d-flex flex-row align-items-center" style="width: 100%;">
+                <div class="g-0 d-flex flex-row align-items-center justify-content-between mx-5" style="width: 90%;">
+                  <div class="d-flex align-items-center" style="width: 80%">
                     <div class="img-diagnosis d-flex justify-content-center align-items-center border border-1 overflow-hidden">
                       <img src="storage/Hypothesis-Image/{{$item->hypothesis->images->first()->image_path}}" class="img-size rounded-start border img-fluid" style="height: 100%; width: 100%;"  alt="...">
                     </div>
@@ -158,7 +158,7 @@
                     <a href="{{ route('history_detail',  $item->id)}}" class="btn text-primary fs-5"><i class="fa-solid fa-chevron-right"></i></a>
                   </div>
                 </div>
-              </div>
+              </a>
               <div class="modal fade" 
                   id="modalId{{ $item->id }}" 
                   tabindex="-1" data-bs-backdrop="static"

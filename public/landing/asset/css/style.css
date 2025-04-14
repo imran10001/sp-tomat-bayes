@@ -324,6 +324,14 @@ section a:hover{
     .carousel{
         height: 280px;
     }
+
+    .kiri{
+        width: 100%;
+    }
+
+    .kanan{
+        width: 100%;
+    }
 } 
 
 @media only screen and (max-width: 575px) {

@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <!-- Kanan (atau atas jika layar kecil): Carousel -->
-                        <div class="kanan col-lg-6 d-flex justify-content-center align-items-center position-relative " style="height: 400px; width: 100%">
+                        <div class="kanan col-lg-6 d-flex justify-content-center align-items-center position-relative " style="height: 400px;">
                             <!-- Tombol Prev -->
                             <button class="btn btn-outline-dark rounded-circle position-absolute start-0 top-50 translate-middle-y me-2" 
                                     type="button" data-bs-target="#Carousel" data-bs-slide="prev" style="z-index: 1;">

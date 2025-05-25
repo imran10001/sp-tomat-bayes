@@ -32,7 +32,7 @@
                 @endif
                 <a href="{{ route('hypothesis.create') }}" class="btn btn-primary btn-sm mb-3"><i class="fas fa-fw fa-plus"></i> Add</a>
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered text-dark" style="font-size: 1.4rem" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>No</th>

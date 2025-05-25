@@ -33,16 +33,16 @@
                     <div class="result" id="result">
                         <div class="d-flex flex-column-reverse flex-lg-row align-items-start justify-content-between gap-4 mt-5">
                             <!-- Kiri: Deskripsi dan Penanganan -->
-                            <div class="kiri col-lg-6">
+                            <div class="kiri col-lg-6 fs-3">
                                 @if(isset($bestHypothesisData))
-                                <div class="mb-2 mt-5">
+                                <div class="mb-2 mt-0">
                                     <label for="">Nama Penyakit :</label>
                                     <textarea class="autoresizeTextarea text-black" disabled name="" id="">{{ $bestHypothesisData->name }}</textarea>
                                 </div>
                                 <div class="mb-2">
                                     <label for="">Gejala Yang Dipilih :</label>
                                     <textarea class="autoresizeTextarea text-black" disabled name="" id="">@foreach($selectedEvidencesData as $evidence)
-    - {{ $evidence -> name }}
+- {{ $evidence -> name }}
     @endforeach</textarea>
                                 </div>
                                 <div class="mb-2">
@@ -70,7 +70,7 @@
                                 @endif
                             </div>
                             <!-- Kanan (atau atas jika layar kecil): Carousel -->
-                            <div class="kanan col-lg-6 d-flex justify-content-center align-items-center position-relative " style="height: 400px; width: 100%">
+                            <div class="kanan col-lg-6 d-flex justify-content-center align-items-center position-relative " style="height: 400px;">
                                 <!-- Tombol Prev (di luar kiri gambar) -->
                                 <button class="btn btn-outline-dark rounded-circle position-absolute start-0 top-50 translate-middle-y me-2" 
                                         type="button" data-bs-target="#Carousel" data-bs-slide="prev" style="z-index: 1;">

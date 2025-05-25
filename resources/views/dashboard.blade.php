@@ -88,10 +88,7 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
-
         <div class="row">
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
@@ -103,7 +100,7 @@
                     <!-- Card Body -->
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered text-dark" style="font-size: 1.4rem" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>No</th>

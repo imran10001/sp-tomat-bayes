@@ -33,7 +33,7 @@
 
                 <div class="d-flex flex-column-reverse flex-lg-row align-items-start justify-content-between gap-4 mt-5">
                     <!-- Kiri: Deskripsi dan Penanganan -->
-                    <div class="kiri col-lg-6">
+                    <div class="kiri col-lg-6 fs-4">
                         <div class="mb-3">
                             <label for="">Deskripsi Penyakit :</label>
                             <textarea id="" class="autoresizeTextarea mt-2 w-100 p-3 rounded-4 text-black" disabled>{{$get_hypothesis->description}}</textarea>
@@ -45,7 +45,7 @@
                     </div>
 
                     <!-- Kanan (atau atas jika layar kecil): Carousel -->
-                    <div class="kanan col-lg-6 d-flex justify-content-center align-items-center position-relative " style="height: 400px; width: 100%">
+                    <div class="kanan col-lg-6 d-flex justify-content-center align-items-center position-relative " style="height: 400px;">
                         <!-- Tombol Prev -->
                         <button class="btn btn-outline-dark rounded-circle position-absolute start-0 top-50 translate-middle-y me-2" 
                                 type="button" data-bs-target="#Carousel" data-bs-slide="prev" style="z-index: 1;">

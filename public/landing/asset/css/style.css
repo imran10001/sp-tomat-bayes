@@ -257,6 +257,10 @@ section a:hover{
     border-radius: 30px;
 }
 
+.kiri .gambar-media{
+    display: none !important;
+}
+
 @media only screen and (max-width: 991px) { 
     #beranda{
         display: flex;
@@ -386,14 +390,51 @@ section a:hover{
 
 } 
 
-@media print {
+/* @media print {
     .deskripsi {
-        height: 500px !important; /* Atur tinggi otomatis */
-        resize: none; /* Matikan manual resize */
-        overflow: hidden; /* Sembunyikan scrollbar */
-        box-sizing: border-box; /* Agar padding dihitung ke dalam lebar */
+        height: 500px !important;
+        resize: none; 
+        overflow: hidden; 
+        box-sizing: border-box; 
         padding: 15px;
         border-radius: 20px;
         border: none;
+    }
+} */
+
+@media print {
+
+    #report, #report * {
+        visibility: visible;
+    }
+
+    #report {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background-color: white;
+    }
+
+    .btn, nav, header, .nav-menu {
+        display: none !important;
+    }
+
+    .desc .kanan{
+        display: none !important;
+    }
+
+    .kiri .gambar-media{
+        display: block !important;
+    }
+
+    .deskripsi {
+        border: none;
+        overflow: visible;
+        height: auto;
+        resize: none;
+        box-shadow: none;
+        background: none;
+        width: 1000px;
     }
 }

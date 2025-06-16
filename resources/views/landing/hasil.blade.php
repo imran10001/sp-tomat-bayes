@@ -29,11 +29,12 @@
         <div class="container">
             <section style="padding-top: 100px; padding-bottom: 100px">
                 <div id="report">
-                    <h2 class="fw-bolder">Hasil Diagnosa</h2>
+                    {{-- <h2 class="fw-bolder">Hasil Diagnosa</h2> --}}
                     <div class="result" id="result">
-                        <div class="d-flex flex-column-reverse flex-lg-row align-items-start justify-content-between gap-4 mt-5">
+                        <h2 class="fw-bolder">Hasil Diagnosa</h2>
+                        <div class="desc d-flex flex-column-reverse flex-lg-row align-items-start justify-content-between gap-4 mt-5">
                             <!-- Kiri: Deskripsi dan Penanganan -->
-                            <div class="kiri col-lg-6 fs-3">
+                            <div class="kiri col-lg-6 fs-5">
                                 @if(isset($bestHypothesisData))
                                 <div class="mb-2 mt-0">
                                     <label for="">Nama Penyakit :</label>
@@ -62,9 +63,12 @@
                                     <textarea class="deskripsi text-black" disabled name="" id="">{{ $bestHypothesisData->solution }}</textarea>
                                 </div>                        
                                 {{-- <img src="/storage/Hypothesis-Image/{{ $bestHypothesisData->image }}" class="rounded-4" height="500px" alt="Gambar Penyakit"> --}}
-                                    {{-- @foreach ($bestHypothesisData->images as $item)
-                                        <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="300px" class="me-3 rounded" alt="Gambar Penyakit">
-                                    @endforeach --}}
+                                <div class="gambar-media d-flex" style="display: none;">
+                                    @foreach ($bestHypothesisData->images as $item)
+                                    <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="300px" class="me-3 rounded" alt="Gambar Penyakit">
+                                    @endforeach
+                                </div>    
+
                                 @else
                                     <div>Data tidak ditemukan.</div>
                                 @endif
@@ -98,86 +102,6 @@
                                 </button>
                             </div>
                         </div>
-
-                        {{-- <div class="carousel modal-body d-flex justify-content-center align-items-center position-relative translate-middle-x start-50" >
-                            <!-- Tombol Prev (di luar kiri gambar) -->
-                            <button class="btn btn-outline-dark position-absolute start-0 top-50 translate-middle-y me-2" 
-                                    type="button" data-bs-target="#Carousel" data-bs-slide="prev" style="z-index: 1;">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </button>
-
-                            <!-- Carousel (Gambar di Tengah) -->
-                            <div id="Carousel" class="carousel  slide overflow-hidden" data-bs-ride="carousel" style="max-width: 80%; height: 100%" data-bs-toggle="modal" data-bs-target="#myModal">
-                                <div class="carousel-inner text-center d-flex align-item-center" style="height: 100%">
-                                    @foreach ($bestHypothesisData->images as $key => $item)
-                                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}  " style="height: 100%">
-                                            <img src="/storage/Hypothesis-Image/{{$item->image_path}}" 
-                                                class="d-block mx-auto img-fluid modal-image" 
-                                                alt="Image"
-                                                style="height: 100%" >
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-
-                            <!-- Tombol Next (di luar kanan gambar) -->
-                            <button class="btn btn-outline-dark position-absolute end-0 top-50 translate-middle-y ms-2" 
-                                    type="button" data-bs-target="#Carousel" data-bs-slide="next" style="z-index: 1;">
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
-                        </div> --}}
-                        {{-- <div id="carouselExample" class="carousel slide overflow-hidden w-50 translate-middle-x start-50">
-                            <div class="carousel-inner "  data-bs-toggle="modal" data-bs-target="#myModal">
-                                @foreach ($bestHypothesisData->images as $item)
-                                <div class="carousel-item active">
-                                    <img src="/storage/Hypothesis-Image/{{$item->image_path}}" class="d-block w-100" alt="...">
-                                </div>
-                                @endforeach
-                                
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div> --}}
-                        {{-- @if(isset($bestHypothesisData))
-                        <div class="mb-2 mt-5">
-                            <label for="">Nama Penyakit :</label>
-                            <textarea class="autoresizeTextarea" disabled name="" id="">{{ $bestHypothesisData->name }}</textarea>
-                        </div>
-                        <div class="mb-2">
-                            <label for="">Gejala Yang Dipilih :</label>
-                            <textarea class="autoresizeTextarea" disabled name="" id="">@foreach($selectedEvidencesData as $evidence)
-- {{ $evidence -> name }}
-@endforeach</textarea>
-                        </div>
-                        <div class="mb-2">
-                            <label for="">Persentase Penyakit :</label>
-                            <textarea class="autoresizeTextarea" disabled name="" id="">{{ $maxTotalBayes }}%</textarea>
-                        </div>
-                        <div class="mb-2">
-                            <label for="">Tingkat Kepastian :</label>
-                            <textarea class="autoresizeTextarea" disabled name="" id="">{{ $certainty }}</textarea>
-                        </div>
-                        <div class="mb-2">
-                            <label for="">Deskripsi Penyakit :</label>
-                            <textarea class="deskripsi" disabled name="" id="">{{ $bestHypothesisData->description }}</textarea>
-                        </div>
-                        <div class="mb-2">
-                            <label for="">Solusi Mengatasi Penyakit :</label>
-                            <textarea class="deskripsi" disabled name="" id="">{{ $bestHypothesisData->solution }}</textarea>
-                        </div>                        
-                        {{-- <img src="/storage/Hypothesis-Image/{{ $bestHypothesisData->image }}" class="rounded-4" height="500px" alt="Gambar Penyakit"> --}}
-                            {{-- @foreach ($bestHypothesisData->images as $item)
-                                <img src="/storage/Hypothesis-Image/{{$item->image_path}}" height="300px" class="me-3 rounded" alt="Gambar Penyakit">
-                            @endforeach --}}
-                        {{--@else
-                            <div>Data tidak ditemukan.</div>
-                        @endif --}}
                     </div>
 
                     <h2 class="mt-5 mb-2 fw-bold">Hasil Diagnosa Lainnya</h2>
@@ -249,43 +173,6 @@
         </div>
     </div>
 </div>
-    {{-- <div class="modal fade" id="myModal" tabindex="-1">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content position-relative"> <!-- Modal Content -->
-                <div class="modal-header">
-                    <h5 class="modal-title">{{ $bestHypothesisData->name }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex justify-content-center align-items-center position-relative " style="min-height: 70vh;">
-                    <!-- Tombol Prev (di luar kiri gambar) -->
-                    <button class="btn btn-outline-dark position-absolute start-0 top-50 translate-middle-y me-2" 
-                            type="button" data-bs-target="#modalCarousel" data-bs-slide="prev" style="z-index: 1;">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-
-                    <!-- Carousel (Gambar di Tengah) -->
-                    <div id="modalCarousel" class="carousel slide overflow-hidden" data-bs-ride="carousel" style="max-width: 80%; height: 650px">
-                        <div class="carousel-inner text-center d-flex align-item-center" style="height: 100%">
-                            @foreach ($bestHypothesisData->images as $key => $item)
-                                <div class="carousel-item position-relative {{ $key == 0 ? 'active' : '' }}  " style="height: 100%">
-                                    <img src="/storage/Hypothesis-Image/{{$item->image_path}}" 
-                                        class="d-block mx-auto img-fluid modal-image position-absolute top-50 start-50 translate-middle" 
-                                        alt="Image"
-                                        style="height: 100%" >
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <!-- Tombol Next (di luar kanan gambar) -->
-                    <button class="btn btn-outline-dark position-absolute end-0 top-50 translate-middle-y ms-2" 
-                            type="button" data-bs-target="#modalCarousel" data-bs-slide="next" style="z-index: 1;">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div> --}}
     </main>
     <footer>
         <span style="color: white;">- 2024 -</span>

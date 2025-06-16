@@ -58,7 +58,7 @@
                                                 <span aria-hidden="true">&times;</span>
                                               </button>
                                             </div>
-                                            <div class="modal-body">
+                                            <div class="modal-body" style="max-height: 60vh; overflow-y: auto;">
                                               @foreach ($rule_data->where('hypothesis_id', $item->id) as $rule_item)
                                               <div class="row justify-content-center align-items-center g-2">
                                                 <div class="col-lg-4 col-md-12"><label for="">{{ $loop->iteration }}. {{ $rule_item->evidence->name }}</label></div>
